@@ -13,7 +13,25 @@ data = r.text
 
 soup = BeautifulSoup(data)
 
+def links():
+	for link in soup.find_all('a'):
+	    print(link.get('href'))
+
+def texts():
+	print(soup.get_text())
+
+def tags():
+	for tag in soup.find_all(True):
+		print(tag.name)
+
+ch = input("Enter your choice of function ")
+
+options = {0 : links,
+	   1 : texts,
+	   2 : tags,
+         
+}
+
+options[ch]()
 
 
-for link in soup.find_all('a'):
-    print(link.get('href'))
